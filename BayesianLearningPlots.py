@@ -1,6 +1,10 @@
-import numpy
+'''
+@author-name: Rishab Katta
+
+Python Program for generating Bayesian Learning Plots for bag of random samples of cherry and lime fruits.
+'''
+
 import matplotlib.pyplot as plt
-import math
 import random
 from functools import reduce
 
@@ -58,7 +62,10 @@ def compute_probabilities(n):
         prior_dist[i] = posteriors[i]
 
 def generate_graph():
-
+    '''
+    Generate graph for all the hypotheses.
+    :return: None
+    '''
     for n in range(0,10):
         compute_probabilities(n)
 
@@ -72,10 +79,9 @@ def generate_graph():
     plt.show()
 
 
-
-
-
-
 if __name__ == '__main__':
-    generate_data(2, 10)
+    noofsamples = int(input("Enter number of samples"))
+    hypothesisno = int(input("Enter hypothesis number 1-5"))
+    hypothesisno = hypothesisno-1
+    generate_data(hypothesisno, noofsamples)
     generate_graph()
